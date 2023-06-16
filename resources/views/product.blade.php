@@ -1,5 +1,56 @@
 @extends('master')
 @section('content')
+<style>
+    img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dropbtn {
+  background-color: none;
+  color: coral;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.dropdwn-cotainer{
+    padding:50px 70px;
+    margin:10px;
+    /* background: url("../images/eevzz_logo.png") no-repeat fixed center center / cover rgba(0, 0, 0, 0) !important; */
+    background-image: url("../images/eevzz_logo.png")no-repeat fixed center center / cover rgba(0, 0, 0, 0) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+</style>
     <div class="container custom-product">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -14,7 +65,7 @@
             @foreach ($products as $item)
                 <div class="item {{ $item['id']==1?'active':''}}">
                     <a href="detail/{{$item['id']}}">
-                        <img class="slider-img"src="{{$item['gallery']}}">
+                        <img class="slider-img" src="{{$item['gallery']}} ">
                         <div class="carousel-caption slider-text">
                             <h3>{{$item['name']}}</h3>
                             <p>{{$item['description']}}</p>
@@ -34,7 +85,7 @@
         </a>
         </div>
         <!-- Trending wrapper -->
-        <div class="trending-wrapper">
+        <!--<div class="trending-wrapper">
             <h3>Trending Products</h3>
             <div class="carousel-inner">
             @foreach ($products as $item)
@@ -48,6 +99,43 @@
                 </div>
             @endforeach                       
             </div>
+        </div>-->
+        <div class="dropdwn-cotainer">
+            <div class="row">
+                <div class="dropdown col-sm-3">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown col-sm-3">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown col-sm-3">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown col-sm-3">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 @endsection
